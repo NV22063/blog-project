@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { MdKeyboardArrowDown } from 'raect-icons/md';
 import { images } from '../constants'
 
 const NavItemInfo = [
-  {name: "Home"},
-  {name: "Articles"},
-  {name: "Pages"},
-  {name: "Pricing"},
-  {name: "FAQ"},
+  {name: "Home", type: "link" },
+  {name: "Articles", type: "link" },
+  {name: "Pages", type: "dropdown" },
+  {name: "Pricing", type: "link" },
+  {name: "FAQ", type: "link" },
 ]
 
 const NavItem = ({name}) => {
@@ -33,13 +35,14 @@ const NavVisibilityHandler = () => {
             <div>
               <img className="w-16" src={images.Logo} alt="logo" />
             </div>
-            <div className={'${NavIsVisible ? "right-0" : "-right-full"} flex  flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static  gap-x-9 items-center'}>
-             <ul className="flex gap-x-2 font-semibold">
+            <div className='lg:hidden z-50'>{NavIsVisible ? <AiOutlineClose className='w-6 h-6' onClick={NavVisibilityHandler} /> : <AiOutlineMenu className='w-6 h-6' onClick={NavVisibilityHandler} />}</div>
+            <div className={'${NavIsVisible ? "right-0" : "-right-full"} transition-all duratio-300 mt-[56px] lg:mt-0 bg-dark-hard lg:bg-transparent z-[49] flex  flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static  gap-x-9 items-center'}>
+             <ul className="text-white items-center gap-y-5 lg:text-dark-soft flex flex-col lg:flex-row gap-x-2 font-semibold">
                {NavItemInfo.map((item) => (
                 <NavItem Key={item.name} name={item.name}/>
                ))}
              </ul>
-             <button className="border-2 border-blue-500 px-6 py-2 rounded-full text-blue-500 font-semibold hover:bg-blue-500 hover:text-white transation-all duration-300">Sign in</button>
+             <button className="mt-5 lg:mt-0 border-2 border-blue-500 px-6 py-2 rounded-full text-blue-500 font-semibold hover:bg-blue-500 hover:text-white transation-all duration-300">Sign in</button>
             </div>
         </header>
     </section>
