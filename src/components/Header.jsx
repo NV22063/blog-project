@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { MdKeyboardArrowDown } from 'raect-icons/md';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 import { images } from '../constants'
+
 
 const NavItemInfo = [
   {name: "Home", type: "link" },
@@ -26,7 +27,7 @@ const NavItem = ({ item }) => {
         <a href="/" className="px-4 py-2 flex gap-x-1 items-center"><span>{item.name}</span>
         <MdKeyboardArrowDown />
         </a>
-        <div className='hidden transition-all duration-500 pt-4 absolute bottem-0 right-0 transform translate-y-full group-hover:block w-max'>
+        <div className='hidden transition-all duration-500 pt-4 absolute bottom-0 right-0 transform translate-y-full group-hover:block w-max'>
           <ul className='flex flex-col shadow-lg rounded-lg overflow-hidden'>
             {item.items.map((page) => (
               <a href="/" className='hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft'
