@@ -1,4 +1,3 @@
-import Card from './components/Card';
 import './App.css';
 import HomePage from './pages/HomePage';
 
